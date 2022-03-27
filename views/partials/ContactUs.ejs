@@ -1,0 +1,47 @@
+<section id="contact-us" class="contact-us-sec">
+    <h5 class="contact-header">Contact Us</h5>
+    
+    <div class="container contact-us">
+    <p class="contact-detail">
+    Give us a feedback on our services so we can serve u better💕❤</p>
+    <div class="form-group">
+      <form className="contact-form" onSubmit={sendEmail}>
+          <input type="hidden" name="contact_number" />
+          <div class="contact-us row">
+  <div class="form-group col  col-lg-8">
+        <label for="exampleFormControlInput1">Name</label>
+          <input class="form-control" 
+          type="text" 
+          name="user_name"
+          value="user_name" />
+      </div>
+</div>
+<div class="contact-us row">
+  <div class="form-group col  col-lg-8">
+        <label for="exampleFormControlInput1">Email</label>
+          <input class="form-control" 
+          type="email" 
+          name="user_email"
+          value="user_email" />
+      </div>
+</div> 
+<div class="contact-us row">
+  <div class="form-group col  col-lg-8">
+        <label for="exampleFormControlInput1">Message</label>
+          <textarea class="form-control" 
+          name="message" 
+          value="message" />
+      </div>
+</div>
+<div class="contact-us row">
+  <div class="form-group col  col-lg-8">
+        <input class="btn btn-success btn-lg" type="submit" value="Send"/>
+      </div>
+</div>
+          
+      </form>
+    </div>
+        
+    </div>
+        
+    </section>

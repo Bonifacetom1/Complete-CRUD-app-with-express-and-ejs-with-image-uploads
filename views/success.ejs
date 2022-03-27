@@ -1,0 +1,32 @@
+<header>
+  <%- include('partials/head'); %>
+  <style>
+    p {
+  text-align: center;
+  font-style: normal;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+  </style>
+</header>
+<div class="success-body">
+  <div class="success-card">
+  <div>
+    <!-- <i class="success-mark">👌</i> -->
+    <img src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/thumbs-up_1f44d.png"
+    alt="emoji-success">
+  </div>
+  <h1 class="success-h1">Success</h1> 
+  <p class="">Name: <b> <%=donor.full_name%> <br>
+   </b>Your deposit of NGN<b><%=donor.amount%> </b>was successful  </p>
+  <p class="">Your reference ID: <b><%=donor.reference%> </b> <br>keep it safe, you will need it for access into the gym</p>
+  <p class="">Thank you for your patronage<br/> we'll be glad to hale you workout in our gym!</p>
+  <p class="">Registration Date: <%= regTime %></p>
+  <br>
+  <!-- <p>Go back to <a href="welcome.ejs" style="position: relative;">Home</i></a> page</p> -->
+  </div>
+</div>
+
+
+  <section>
+    <%- include('partials/foot'); %>
+</section>

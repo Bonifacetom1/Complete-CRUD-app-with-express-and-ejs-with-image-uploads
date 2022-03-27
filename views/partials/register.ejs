@@ -1,0 +1,71 @@
+
+<div class="container reg-center body">
+  <div class="row">
+  
+    <h1>Register</h1>
+    <%- include ('../partials/messages') %>
+<form action="register" method="POST">
+  <div class="shadow-lg p-3 mb-5 bg-body rounded">
+    <div class="form-group">
+    <label for="name">Name</label>
+    <input
+    class="form-control"
+      type="text"
+      name="name"
+      placeholder="Enter Name"
+    />
+  
+</div>
+
+<div class="form-group">
+  <div>
+    <label for="email">Email</label>
+    <input
+    class="form-control"
+      type="email"
+      name="email"
+      placeholder="Enter Email"
+      value="<%= typeof email != 'undefined' ? email : '' %>"
+    />
+  </div>
+</div>
+
+<div class="form-group">
+  <div >
+    <label for="password">Password</label>
+    <input
+    class="form-control"
+      type="password"
+      name="password"
+      placeholder="Create Password"
+      value="<%= typeof password != 'undefined' ? password : '' %>"
+    />
+  </div>
+</div>
+  
+<div class="form-group">
+  <div >
+    <label for="password2">Confirm Password</label>
+    <input
+    class="form-control"
+      type="password"
+      name="password2"
+      placeholder="Confirm Password"
+      value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+    />
+  </div>
+</div>
+  
+<div class="form-group">
+  <button type="submit" class="btn btn-success btn-block">
+    Register
+  </button>
+  </div>
+
+</form>
+<p >Have An Account? <a href="/users/login">Login</a></p>
+  
+
+
+</div>
+</div>

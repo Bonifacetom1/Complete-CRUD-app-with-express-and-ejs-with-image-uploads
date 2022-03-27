@@ -1,0 +1,334 @@
+
+<header>
+    <%- include('partials/head'); %>
+    <style>
+      .body{
+        margin-top: 77px;
+      }
+
+      .welcome-user{
+        text-align: center;
+        width: fit-content;
+        font-size: 18px;
+        position: absolute;
+        top: 8px;
+        right: 16px;
+        font-size: 18px;
+        border-radius: 50px;
+        background: #03d19e;
+        padding: 0% 20px;
+        margin-top: 65px;
+      }
+      .welcome-user p {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      .user-type {
+        text-align: center;
+        font-size: 25px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .input-group {
+        width: fit-content;
+      }
+
+      .circular_image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: blue;
+  /* commented for demo
+  float: left;
+  margin-left: 125px;
+  margin-top: 20px;
+  */
+  
+  /*for demo*/
+  display:inline-block;
+  vertical-align:middle;
+}
+.circular_image img{
+  width:100%;
+}
+
+      .center {
+  margin-left: auto;
+  margin-right: auto;
+  height: 150px;
+  width: max-content;
+  font-size: large;
+}
+
+tr td {
+  margin: 0px;
+  padding: 0px;
+}
+
+.card {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  max-width: 80%;
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  text-align: center;
+  font-style: normal;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+div .col {
+  font-size: medium;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.logout {
+  color: red;
+  width: fit-content;
+}
+.logout:hover {
+  color: rgb(32, 32, 32);
+}
+
+td {
+  width: 50%;
+  margin: 0px;
+  padding: 0px;
+  height: fit-content;
+}
+tr {
+  margin: 0px;
+  padding: 0px;
+  height: fit-content;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-close {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* Modal Content */
+.modal-content {
+  text-align: center;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+    </style>
+</header>
+
+
+
+<section class="body">
+
+  <h1>Dashboard</h1>
+  <form class="row gy-2 gx-3 align-items-center container-fluid">
+    <div class="col-auto">
+      
+      <div class="circular_image">
+        <% if (result.image.contentType) { %>
+          <img class="image" src="data:image/<%=result.image.contentType%>;base64,
+              <%=result.image.data.toString('base64')%>">
+      <% }else{ %>
+        <img src="https://s3.amazonaws.com/FringeBucket/default-user.png" alt="Profile Image"/>
+        <% } %>
+        
+        
+      </div>
+
+      <div style="text-align: center;">
+        <h5><%= result.name %></h5>
+        <h8><%= regType %></h8> <br>
+        <a class="" href="/updateUser">Profile & Updates</a>
+      </div>
+      
+    </div>
+    <div class="col-auto">
+      <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
+      <div class="input-group">
+        
+        <div class=" card shadow-lg p-3 mb-6 bg-white rounded">
+      
+          <p class="container">There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain...</p>
+        <!-- <table class="center">
+          <tr>
+            <td>Email :</td>
+            <td><%= result.email %></td>
+          </tr>
+          <tr>
+            <td>Key :</td>
+            <td><%= resultD.reference %></td>
+          </tr>
+          <tr>
+            <td>Start Date :</td>
+            <td>  <%= regDate %></td>
+          </tr>
+          
+        </table>
+        </table> -->
+
+        <div class="container">
+          <div class="row">
+            <div class="col col-lg-3">
+              Email :
+            </div>
+            <div class="col">
+              <%= result.email %>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col col-lg-3">
+              Key :
+            </div>
+            <div class="col">
+              <%= resultD.reference %>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col col-lg-3">
+              Start Date :
+            </div>
+            <div class="col">
+              <%= regDate %>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col col-lg-3">
+              Expiration Date :
+            </div>
+            <div class="col">
+              <%= expDate %>
+            </div>
+          </div>
+        </div>
+        
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-auto">
+      
+    </div>
+    <div class="col-auto ads-center">
+      <div class="shadow-lg">
+        <h6>ADS Display here</h6> 
+      </div>
+    </div>
+    <div class="col-auto">
+      
+      
+    </div>
+  </form>
+
+  <a class="container-fluid logout" href="/logout">Logout</a> <br>
+  <!-- Trigger/Open The Modal -->
+<p class="btn logout" id="myBtn">Delete Acc.</button>
+
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-close">
+      <span style="color: red;" class="close">&times;</span>
+      <div class="modal-content">
+      
+      <h3>Confirm Delete</h3>
+      <p>Onclick of the Ok button you confirm that you are the owner of this account and this account and all its transaction logs should be deleted</p>
+      <div class="row">
+        <button class="col btn btn-secondary dialogbtn closeDialog">Cancel</button>
+        <a style="color: white;" href="/delete" class="col btn btn-danger dialogbtn">Ok</a>
+      </div>
+      
+    </div>
+    </div>
+    
+  
+  </div>
+
+</section>
+
+<script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  var spanx = document.getElementsByClassName("closeDialog")[0];
+  
+  // When the user clicks the button, open the modal 
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  spanx.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  </script>
+
+
+<section>
+<%- include('partials/foot'); %>
+</section>
